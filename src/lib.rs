@@ -46,7 +46,7 @@ pub mod logger {
             let file = fs::write(self.filepath.clone(), text);
             match file {
                 Ok(..) => {
-                    
+                    let _ = &self.info(format!("Log exported successfully!").to_string());
                 },
                 Err(error) => {
                     let _ = &self.error(format!("Failed to export log! {}", error).to_string());
