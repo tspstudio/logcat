@@ -34,6 +34,7 @@ pub mod logger {
             let error = format!("[CRITICAL ERROR] {} >> {}", Local::now().format("%H:%M:%S").to_string(), text);
             println!("{}", error.clone());
             self.log.push(error);
+            self.export();
             process::exit(-1);
         }
         pub fn custom(&mut self, _type: String, text: String) {
@@ -57,7 +58,17 @@ pub mod logger {
 }
 #[cfg(test)]
 mod tests {
+    use crate::logger::Logger;
+
     #[test]
     fn it_works() {
+        let mut logger = Logger::new(String::from("filename.txt"));
+        // Logging
+        logger.info(String::from("This is info!"));
+        logger.warning(String::from("This is warning!"));
+        logger.error(String::from("This is error!"));
+        logger.custom(String::from("CUSTOM"), String::from("This is custom log!"));
+        logger.export(); // Will export all logs with timestamp.
+        logger.critical(String::from("This is critical error! Program will exit with code -1!"));
     }
 }
