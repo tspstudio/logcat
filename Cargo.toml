@@ -3,6 +3,13 @@ name = "logcat"
 version = "0.0.1"
 authors = ["tspstudio <serhiiremeniuk@gmail.com>"]
 edition = "2021"
+description = "A simple and lightweight logging library."
+documentation = "https://github.com/tspstudio/logcat/blob/stable/README.md"
+readme = "README.md"
+homepage = "https://github.com/tspstudio/logcat"
+repository = "https://github.com/tspstudio/logcat"
+license = "MIT OR Apache-2.0"
+keywords = ["logging", "logs"]
 
 [dependencies]
 chrono = "0.4.38"
